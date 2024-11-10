@@ -1,1 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="追思余吳烏肉女士的訃告公告，包含追思會信息、聯絡方式和致贈花籃選項。">
+    <meta name="keywords" content="余吳烏肉夫人, 訃告, 追思會, 致贈花籃, 致意">
+    <meta property="og:locale" content="zh_TW">
+    <meta name="author" content="祥安生命">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="鄭翔耀先生雲端訃告-祥安">
+    <meta property="og:description" content="追思鄭翔耀先生雲端訃告,衷心感謝親友的慰問與陪伴,治喪期間,因時間有限,以電子追思訊息,邀請您一同參與鄭翔耀先生人生畢業典禮">
+    <meta property="og:image" content="https://shiangan.github.io/ZhengXiangyao/image/IMG_5994.jpg">
+    <meta property="og:url" content="https://shiangan.github.io/ZhengXiangyao/">
+    <meta property="og:type" content="website">
+    <title>余吳烏肉夫人訃聞公告</title>
+    <link rel="stylesheet" href="obituary.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+</head>
+    
+<audio id="background-music" autoplay loop>
+    <source src="願得一人心.mp4" type="audio/mp4">
+    <source src="願得一人心.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var audio = document.getElementById('background-music');
+    audio.volume = 0;  // 初始化音量为 0
+    audio.muted = true;  // 初始化为静音，确保能自动播放
+
+    // 恢复音频的当前时间
+    var savedTime = localStorage.getItem('audioCurrentTime');
+    if (savedTime) {
+        audio.currentTime = parseFloat(savedTime);  // 设置为上次保存的时间点
+    }
+
+    // 检查是否需要恢复播放状态
+    var isPlaying = localStorage.getItem('audioPlaying') === 'true';
+    if (isPlaying) {
+        // 初始化静音自动播放
+        var playPromise = audio.play().then(function() {
+            audio.muted = true;  // 确保静音播放
+        }).catch(function(error) {
+            console.log('静音播放失败:', error);
+        });
+    }
+
+    // 保存音频的播放时间
+    setInterval(function () {
+        if (!audio.paused) {
+            localStorage.setItem('audioCurrentTime', audio.currentTime);
+        }
+    }, 1000);  // 每秒保存一次播放时间
+
+    // 检查用户是否有交互，取消静音
+    function unmuteAudio() {
+        if (audio.muted) {
+            audio.muted = false;  // 取消静音
+            fadeInAudio();  // 渐显音量
+            // 移除事件监听器，防止重复触发
+            document.removeEventListener('click', unmuteAudio);
+            document.removeEventListener('touchstart', unmuteAudio); // 适用于移动设备
+        }
+    }
+
+    // 仅在用户点击或触摸时解除静音
+    document.addEventListener('click', unmuteAudio);
+    document.addEventListener('touchstart', unmuteAudio);
+
+    // 渐显函数
+    function fadeInAudio() {
+        let volume = 0;
+        const interval = setInterval(function() {
+            if (volume < 1) {
+                volume += 0.05;  // 每次增加音量
+                audio.volume = volume;
+            } else {
+                clearInterval(interval);  // 完成渐显
+            }
+        }, 200);  // 每200毫秒增加一次音量
+    }
+
+    // 保存音频的播放状态
+    audio.addEventListener('play', function () {
+        localStorage.setItem('audioPlaying', 'true');
+    });
+
+    audio.addEventListener('pause', function () {
+        localStorage.setItem('audioPlaying', 'false');
+    });
+});
+</script>
+ 
+    <header>
+        <img src="image/logo.png" alt="Logo" class="logo" loading="lazy">
+        <h1>鄭翔耀先生 訃告</h1>
+    </header>
+
+    <main>
+        <!-- 主要照片部分 -->
+        <section class="main-photo-section">
+    <img id="main-photo" src="image/IMG_5992.JPG" alt="追思照片"loading="lazy">
+    <p id="life-story">
+        <strong>我們敬愛的親人 鄭翔耀先生</strong><br>
+        <strong>於113年11月08日 下午03時45分</strong><br>
+        <strong>在家人的陪伴下 安詳離世</strong><br><br>
+        <strong> 孝男 仲裕 仲進 </strong><br>
+        <strong> 孝女 月女 家寧 </strong><br>  
+        <strong>  率  全體孝眷</strong><br>
+        <strong>親視含殮 遵禮成服</strong><br><br>
+        <strong>豎靈於</strong><br> 
+        <strong> 龍華會館 1F </strong><br> 
+        <strong>  牌位區 [ 73 ] 號  </strong><br><br>
+        <strong> 謹擇於113年11月18日（一）舉行追思告別奠禮 </strong><br><br>
+        <strong> 感謝您的致意與陪伴</strong><br>
+        <strong> 給予余吳烏肉夫人最真切的祝福 </strong><br><br>
+        <strong> 家人們 銘記在心 衷心感謝 </strong>
+    </p>
+</section>
+         <style>
+
+/* 淡入效果 */
+.fade-in-text {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+#life-story {
+    text-align: center;
+    font-size: 18px; /* 可以根据需要调整字体大小 */
+    line-height: 1.6; /* 行间距 */
+    margin: 0 auto;
+    max-width: 800px; /* 控制内容的最大宽度 */
+    padding: 20px; /* 适当增加内边距 */
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    #life-story {
+        font-size: 16px; /* 小屏幕上字体略小 */
+        padding: 10px; /* 减少内边距 */
+    }
+}
+
+@media (max-width: 400px) {
+    #life-story {
+        font-size: 14px; /* 更小屏幕上的字体大小 */
+        padding: 5px; /* 更小的内边距 */
+    }
+}
+
+</style>
+
+        <!-- 訃告紙本部分 -->
+        <section class="paper-obituary-section">
+                    <h2><strong>訃告正本</strong></h2>
+            <a href="image/IMG_5993.JPG" data-lightbox="paper-obituary" data-title="訃聞紙本">
+                <img id="paper-obituary" src="image/IMG_5993.JPG" alt="訃聞紙本">
+            </a>
+        </section>
+
+  <!-- 追思與緬懷部分 -->
+<section id="remembrance">
+    <h2><strong>追思緬懷</strong></h2>
+    <div class="remembrance-details">
+        <div class="remembrance-item">
+            <h3><strong>豎靈地點</strong></h3>
+            <p><strong> 龍華會館 </strong></p>
+             <p><strong> 1F 牌位區 73 號 </strong></p>
+            <p><strong><a href="https://maps.app.goo.gl/c6NRvwgt4ZCxT2Hm8">地址：220新北市板橋區長江路一段7號</a></strong></p>
+        </div>
+        <div class="remembrance-item">
+            <h3><strong>出殯地點</strong></h3>
+            <p><strong> 新北市立殯儀館（板橋殯儀館）</strong>
+        <p><strong> [ 崇仁廳 ] </strong></p>
+            <p><strong><a href="https://maps.app.goo.gl/mmEJudrNVMPpWcBP7" target="_blank">地址：220新北市板橋區中正路560號</a></strong></p>
+        </div>
+        <div class="remembrance-item">
+            <h3><strong>出殯日期</strong></h3>
+            <p><strong> 2024年11月18日（一）</strong></p>
+        </div>
+        <div class="remembrance-item">
+            <h3><strong>追思奠禮</strong></h3>
+            <p><strong> 上午 八 時    家奠禮 </strong></p>
+            <p><strong> 上午 八 時 三十 分 公奠禮 </strong></p>
+        </div>
+        <div class="remembrance-item">
+            <h3><strong>聯繫電話</strong></h3>
+            <p><strong>仲進 📞<a href="tel:0933-801-018">  0933-801-018 </a></strong></p>
+            <p><strong>貞德 📞<a href="tel:0953-072-922">  0953-072-922 </a></strong></p>
+        </div>
+        <!-- 地圖嵌入 -->
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.156457822896!2d121.4578063!3d25.028763899999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a80d7ca74fcd%3A0x8c08047e5fb532b9!2sNew%20Taipei%20City%20Funeral%20Parlor!5e0!3m2!1sen!2stw!4v1730176113062!5m2!1sen!2stw"
+            width="100%" 
+            height="350" 
+            frameborder="0" allowfullscreen>
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+        <!-- 感謝信息部分 -->
+        <div class="remembrance-thanks">
+            <p class="fade-in-text"><strong>感謝親友們在這段時間的慰問與關心</strong></p>
+            <p class="fade-in-text"><strong>您的關懷和鼓勵</strong></p>
+            <p class="fade-in-text"><strong>陪伴我們度過了這段艱難的時光</strong></p>
+            <p class="fade-in-text"><strong>敬邀您</strong></p>
+            <p class="fade-in-text"><strong>與我們一同追思懷念 余吳烏肉夫人 </strong></p>
+            <p class="fade-in-text"><strong>並向您獻上最深的敬意</strong></p>
+            <p class="fade-in-text"><strong>謝謝您！</strong></p>
+        </div>
+
+        
+
+         <style>
+             /* 淡入效果 */
+.fade-in-text {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+         
+         /* 响应式设计 */
+@media (max-width: 500px) {
+    #remembrance-thanks {
+        font-size: 20px; /* 小屏幕上字体略小 */
+        padding: 10px; /* 减少内边距 */
+    }
+}
+
+@media (max-width: 400px) {
+    #remembrance-thanks {
+        font-size: 14px; /* 更小屏幕上的字体大小 */
+        padding: 5px; /* 更小的内边距 */
+    }
+}
+
+             img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+         </style>
+
+        <!-- 致贈花籃部分 -->
+        <!-- 致贈花籃部分 -->
+<!-- 致贈花籃部分 -->
+<section id="donate-flower">
+    <h3><strong>致贈花籃，送上祝福</strong></h3>
+    <p><strong>選擇致贈花籃樣式，通過LINE與我們聯繫。</strong></p>
+
+    <!-- 訂購按鈕 -->
+    <a href="https://line.me/ti/p/TuM5y_Of6I" target="_blank" class="btn-order"><strong>加入 LINE 訂購</strong></a><br>
+
+    <!-- 顯示花籃樣式按鈕 -->
+    <a href="javascript:void(0);" id="show-flower-baskets" class="btn"><strong>顯示花籃樣式 🌹</strong></a>
+</section>
+
+<!-- 花籃畫廊，默認隱藏 -->
+<div id="flower-basket-gallery" style="display: none;">
+    <div class="flower-basket-item">
+        <a href="image/花籃A.JPG" data-lightbox="flower-baskets" data-title="A款NT$2,500/1對">
+            <img src="image/花籃A.JPG" alt="花籃A" loading="lazy">
+        </a>
+        <p class="price"><strong>A款NT$2,500/對</strong></p>
+    </div>
+    <div class="flower-basket-item">
+            <a href="image/花籃B.JPG" data-lightbox="flower-baskets" data-title="B款NT$3,000/1對">
+                <img src="image/花籃B.JPG" alt="花籃B" loading="lazy">
+            </a>
+            <p class="price"><strong>B款NT$3,000/對</strong></p>
+        </div>
+        <div class="flower-basket-item">
+            <a href="image/花籃C.JPG" data-lightbox="flower-baskets" data-title="C款NT$3,000/1對 ">
+                <img src="image/花籃C.JPG" alt="花籃C" loading="lazy">
+            </a>
+            <p class="price"><strong>C款NT$3,500/對</strong></p>
+        </div>
+        <div class="flower-basket-item">
+            <a href="image/花籃D.JPG" data-lightbox="flower-baskets" data-title="D款NT$3,000/1對" >
+                <img src="image/花籃D.JPG" alt="花籃D" loading="lazy">
+            </a>
+            <p class="price"><strong>D款NT$4,000/對</strong></p>
+        </div>
+        <div class="flower-basket-item">
+            <a href="image/花籃E.JPG" data-lightbox="flower-baskets" data-title="E款NT$3,000/1對">
+                <img src="image/花籃E.JPG" alt="花籃E" loading="lazy">
+            </a>
+            <p class="price"><strong>E款NT$5,000/對</strong></p>
+        </div>
+        <div class="flower-basket-item">
+            <a href="image/花籃F.JPG" data-lightbox="flower-baskets" data-title="F款NT$3,000/1對">
+                <img src="image/花籃F.JPG" alt="花籃F" loading="lazy">
+            </a>
+            <p class="price"><strong>F款NT$5,500/對</strong></p>
+        </div>
+        <div class="flower-basket-item">
+            <a href="image/花籃G.JPG" data-lightbox="flower-baskets" data-title="G款NT$3,000/1對">
+                <img src="image/花籃G.JPG" alt="花籃G" loading="lazy">
+            </a>
+            <p class="price"><strong>G款NT$6,000/對</strong></p>
+        </div>
+        <div class="flower-basket-item">
+            <a href="image/花籃H.JPG" data-lightbox="flower-baskets" data-title="H款NT$3,000/1對">
+                <img src="image/花籃H.JPG" alt="花籃H" loading="lazy">
+            </a>
+            <p class="price"><strong>H款NT$6,500/對</strong></p>
+        </div>
+        <!-- 依此类推 -->
+    </div>
+
+<script>
+    // 控制显示和隐藏花籃画廊的功能
+    document.getElementById('show-flower-baskets').addEventListener('click', function() {
+        var gallery = document.getElementById('flower-basket-gallery');
+        if (gallery.style.display === 'none' || gallery.style.display === '') {
+            gallery.style.display = 'flex';
+            this.innerHTML = '<strong>隱藏花籃樣式 🌹</strong>';
+        } else {
+            gallery.style.display = 'none';
+                    this.innerHTML = '<strong>顯示花籃樣式 🌹</strong>';
+        }
+    });
+</script>
+
+<style>
+    /* 致贈花籃部分样式 */
+    #donate-flower {
+        text-align: center;
+        margin: 20px auto;
+        max-width: 500px;
+        padding: 20px;
+        border: 2px solid #0066cc; /* 深蓝色边框 */
+        border-radius: 10px; /* 圆角 */
+        background-color: #f0f8ff; /* 淡蓝色背景 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影 */
+    }
+
+    #donate-flower h3 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    #donate-flower p {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    /* 顯示花籃樣式按钮样式 */
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #0066cc; /* 蓝色背景 */
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #004d99; /* 鼠标悬停时的颜色变化 */
+    }
+
+    /* 花籃画廊样式 */
+    #flower-basket-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .flower-basket-item {
+        max-width: 200px; /* 控制花籃圖片最大寬度 */
+        text-align: center;
+    }
+
+    .flower-basket-item img {
+        width: 100%;
+        height: auto; /* 保持圖片比例 */
+        border: 2px solid #ccc; /* 圖片边框 */
+        border-radius: 5px; /* 圖片圓角 */
+    }
+
+    .price {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+</style>
+
+<!-- 固定聯絡方式 -->
+        <div id="fixed-links">
+            <a href="tel:0938-179-858" class="bold">
+                <img src="image/24小時專線.png" alt="24小時服務電話" style="width: 70px; height: 30px;">
+            </a>
+            <a href="https://line.me/ti/p/TuM5y_Of6I" target="_blank" class="bold">
+                <img src="image/Iine-icon.png.png" alt="LINE 聯絡我們" style="width: 50px; height: 50px;" loading="lazy">
+            </a>
+        </div>
+
+        <style>
+        #fixed-links {
+    position: fixed; /* 固定在页面上 */
+    bottom: 10px; /* 距离底部10px */
+    right: 10px; /* 距离右侧10px */
+    display: flex; /* 使用flex布局 */
+    gap: 10px; /* 每个项之间的间距 */
+    align-items: center; /* 垂直居中对齐 */
+    z-index: 1000; /* 确保在页面内容之上 */
+}
+
+#fixed-links a {
+    display: block; /* 链接块级显示 */
+}
+
+#fixed-links img {
+    display: block; /* 图片块级显示 */
+    width: auto; /* 根据实际图片宽高比例调整 */
+    height: auto; /* 根据实际图片宽高比例调整 */
+    max-width: 70px; /* 最大宽度 */
+    max-height: 50px; /* 最大高度 */
+    border: none; /* 去掉图片的边框 */
+    border-radius: 5px; /* 圆角 */
+}
+            </style>
+        
+         
+    
+        <!-- 名片及分享按钮部分 -->
+        <section id="business-card">
+            <img src="image/Explore Brush Script Photo Facebook Cover.png" alt="名片" class="business-card-img">
+            <div id="share-buttons">
+
+    <!-- 分享按钮 -->
+        <section id="share-buttons">
+            <p><strong>分享此頁面</strong></p>
+            <div class="share-btns">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://shiangan.github.io/YU-WU-WU-ROU/" target="_blank" class="share-btn fb-share-btn" aria-label="Share on Facebook">
+                    <img src="image/fb.png" alt="Share on Facebook">
+                </a>
+                <a href="https://line.me/R/msg/text/?https://shiangan.github.io/YU-WU-WU-ROU/" target="_blank" class="share-btn line-share-btn" aria-label="Share on Line">
+                    <img src="image/line.png" alt="Share on Line">
+                </a>
+            </div>
+        </section>
+    </main>
+
+                <style>
+#share-buttons {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.share-btns {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.share-btn {
+    display: inline-block;
+}
+
+.fb-share-btn img, .line-share-btn img {
+    width: 40px; /* 设定适当的图标大小 */
+    height: auto;
+}
+
+.fb-share-btn:hover img, .line-share-btn:hover img {
+    opacity: 0.8; /* 鼠标悬停效果 */
+}
+                </style>
+
+     <div style="padding: 20px; background-color: #f9f9f9; border-radius: 10px; margin-top: 20px;">
+    <h2 style="font-family: '辰魚落雁體'; color: #333; text-align: center;">新北市立殯儀館</h2>
+    <p style="font-size: 16px; font-family: 'Arial', sans-serif; color: #666; text-align: center;">
+        禮堂＆停車資訊
+
+        <!-- 專車示意圖（如果需要，可以添加圖片） -->
+    <div style="text-align: center;">
+        <img src="image/影像 1.jpeg" alt="禮廳" style="width: 300px; height: auto; border-radius: 10px;">
+    </div>
+
+           <div style="text-align: center;">
+        <img src="image/影像.jpeg" alt="停車資訊" style="width: 300px; height: auto; border-radius: 10px;">
+    </div>
+        
+</div>
+
+    <!-- 页脚 -->
+    <footer style="text-align: center;">
+    <p>承辦禮儀公司 祥安生命有限公司 ｜ 禮儀師：陳柏元</p>
+    <p>© 2024 余吳烏肉夫人訃聞公告 | <span class="footer-signature">祥安生命有限公司</span> 版權所有 |</p>
+</footer>
+
+
+   
+</body>
+</html>
