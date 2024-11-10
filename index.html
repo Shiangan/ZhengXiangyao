@@ -28,65 +28,53 @@
     Your browser does not support the audio element.
 </audio>
 
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var audio = document.getElementById('background-music');
-    audio.volume = 0;  // 初始化音量为 0
-    audio.muted = true;  // 初始化为静音，确保能自动播放
+    audio.volume = 0;  // 初始化音量為 0
+    audio.muted = true;  // 初始化為靜音，確保自動播放
 
-    // 恢复音频的当前时间
+    // 恢復播放位置與狀態
     var savedTime = localStorage.getItem('audioCurrentTime');
     if (savedTime) {
-        audio.currentTime = parseFloat(savedTime);  // 设置为上次保存的时间点
+        audio.currentTime = parseFloat(savedTime);
     }
-
-    // 检查是否需要恢复播放状态
     var isPlaying = localStorage.getItem('audioPlaying') === 'true';
     if (isPlaying) {
-        // 初始化静音自动播放
-        var playPromise = audio.play().then(function() {
-            audio.muted = true;  // 确保静音播放
-        }).catch(function(error) {
-            console.log('静音播放失败:', error);
-        });
+        audio.play().then(() => audio.muted = true);
     }
 
-    // 保存音频的播放时间
     setInterval(function () {
         if (!audio.paused) {
             localStorage.setItem('audioCurrentTime', audio.currentTime);
         }
-    }, 1000);  // 每秒保存一次播放时间
+    }, 1000);
 
-    // 检查用户是否有交互，取消静音
     function unmuteAudio() {
         if (audio.muted) {
-            audio.muted = false;  // 取消静音
-            fadeInAudio();  // 渐显音量
-            // 移除事件监听器，防止重复触发
+            audio.muted = false;
+            fadeInAudio();
             document.removeEventListener('click', unmuteAudio);
-            document.removeEventListener('touchstart', unmuteAudio); // 适用于移动设备
+            document.removeEventListener('touchstart', unmuteAudio);
         }
     }
 
-    // 仅在用户点击或触摸时解除静音
     document.addEventListener('click', unmuteAudio);
     document.addEventListener('touchstart', unmuteAudio);
 
-    // 渐显函数
     function fadeInAudio() {
         let volume = 0;
         const interval = setInterval(function() {
             if (volume < 1) {
-                volume += 0.05;  // 每次增加音量
+                volume += 0.05;
                 audio.volume = volume;
             } else {
-                clearInterval(interval);  // 完成渐显
+                clearInterval(interval);
             }
-        }, 200);  // 每200毫秒增加一次音量
+        }, 200);
     }
 
-    // 保存音频的播放状态
     audio.addEventListener('play', function () {
         localStorage.setItem('audioPlaying', 'true');
     });
