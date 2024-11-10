@@ -1,0 +1,343 @@
+@font-face {
+    font-family: 'ChenYu';
+    src: url('辰魚落雁體.ttf') format('truetype'); /* 使用 truetype 格式 */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+header .logo {
+    max-width: 100px;
+    height: auto;
+}
+
+header h1 {
+    font-family: 'ChenYu', Arial; /* 使用辰魚落雁體 */
+    font-size: 38px; /* 根据需要调整字体大小 */
+    color: #333; /* 字体颜色 */
+    margin: 0; /* 清除默认的 margin */
+}
+
+
+
+.main-photo-section img,
+.paper-obituary-section img,
+.business-card-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+
+
+
+/* 应用到“陳顯銘訃告” */
+#header h1 {
+    font-family: 'ChenYu', sans-serif; /* 使用文鼎海報體 */
+}
+
+/* 訃告正本部分样式 */
+.paper-obituary-section {
+    text-align: center; /* 内容居中对齐 */
+    margin: 20px auto; /* 上下边距和水平居中 */
+    max-width: 800px; /* 最大宽度 */
+    padding: 20px; /* 内边距 */
+}
+
+.paper-obituary-section h2 {
+    font-size: 24px; /* 标题字体大小 */
+    margin-bottom: 20px; /* 标题底部边距 */
+    color: #333; /* 标题颜色 */
+}
+
+.paper-obituary-section img {
+    max-width: 100%; /* 图片宽度最大为容器宽度 */
+    height: auto; /* 保持图片的比例 */
+}
+
+/* 追思緬懷部分样式 */
+/* 追思緬懷部分样式 */
+#remembrance {
+    text-align: center; /* 内容居中对齐 */
+    margin: 24px auto; /* 上下边距和水平居中 */
+    padding: 20px; /* 内边距 */
+}
+
+#remembrance h2 {
+    font-size: 24px; /* 增大标题字体 */
+    margin-bottom: 20px; /* 标题底部边距 */
+    color: #333; /* 标题颜色 */
+    font-weight: bold; /* 标题加粗 */
+}
+
+.remembrance-details {
+    display: flex;
+    flex-direction: column; /* 在小屏幕上纵向排列 */
+    gap: 20px;
+    align-items: center; /* 内容水平居中对齐 */
+}
+
+.remembrance-item {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%; /* 确保宽度一致 */
+    max-width: 600px; /* 设置最大宽度 */
+    box-sizing: border-box; /* 包含内边距和边框在宽度内 */
+}
+
+.remembrance-item h3 {
+    font-size: 20px; /* 标题字体大小 */
+    margin-bottom: 10px; /* 标题底部边距 */
+    color: #444; /* 标题颜色 */
+    font-weight: bold; /* 项目标题加粗 */
+}
+
+.remembrance-item p {
+    font-size: 16px; /* 内容字体大小 */
+    margin: 5px 0; /* 内容上下边距 */
+    color: #555; /* 内容颜色 */
+}
+
+/* 响应式设计 */
+@media (min-width: 600px) {
+    .remembrance-details {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .remembrance-item {
+        flex: 1 1 calc(50% - 40px); /* 在中等屏幕上每行兩列 */
+        max-width: calc(50% - 40px);
+    }
+}
+
+@media (min-width: 900px) {
+    .remembrance-details {
+        justify-content: flex-start; /* 保持所有元素在左側對齊 */
+    }
+    
+    .remembrance-item {
+        flex: 1 1 calc(33.33% - 40px); /* 在大屏幕上每行三列 */
+        max-width: calc(33.33% - 40px);
+    }
+}
+
+/* 致贈花籃部分样式 */
+#donate-flower {
+    text-align: center; /* 内容居中对齐 */
+    margin: 20px auto; /* 上下边距和水平居中 */
+    max-width: 800px; /* 最大宽度 */
+    padding: 20px; /* 内边距 */
+}
+
+#donate-flower h3 {
+    font-family: 'ChenYu', Arial;
+    font-size: 28px; /* 标题字体大小 */
+    margin-bottom: 20px; /* 标题底部边距 */
+    color: #333; /* 标题颜色 */
+}
+
+#donate-flower p {
+    font-family: 'ChenYu', Arial;
+    font-size: 28px; /* 内容字体大小 */
+    margin: 10px 0; /* 内容上下边距 */
+    color: #555; /* 内容颜色 */
+}
+
+#donate-flower a.btn {
+    font-family: 'ChenYu', Arial;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 26px; /* 按钮字体大小 */
+    color: #fff; /* 按钮文字颜色 */
+    background-color: #0066cc; /* 按钮背景颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    border-radius: 5px; /* 按钮圆角 */
+}
+
+#donate-flower a.btn:hover {
+    background-color: #004d99; /* 鼠标悬停时背景颜色 */
+}
+
+#flower-basket-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.flower-basket-item {
+    max-width: 200px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    background-color: #fff;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flower-basket-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.price {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+
+#business-card {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.business-card-img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#share-buttons {
+    margin-top: 20px;
+}
+
+.share-btn {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.share-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+/* 页脚样式 */
+/* 页脚样式 */
+footer {
+    text-align: center;
+    font-family: 'ChenYu', serif; /* 设置字体为辰魚落雁體 */
+    padding: 20px;
+    background-color: #f1f1f1; /* 页脚背景颜色 */
+    border-top: 1px solid #ddd; /* 上边框 */
+}
+
+footer p {
+    margin: 10px 0;
+    font-size: 20px; /* 调整字体大小 */
+    color: #333; /* 字体颜色 */
+}
+
+#life-story {
+    text-align: center;
+    font-size: 16px; /* 适合手机的字体大小 */
+    line-height: 1.6; /* 行间距 */
+    margin: 0 auto;
+    max-width: 100%; /* 适应手机屏幕宽度 */
+    padding: 10px; /* 适当减少内边距 */
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    #life-story {
+        font-size: 14px; /* 小屏幕上更小的字体大小 */
+        padding: 5px; /* 更小的内边距 */
+    }
+}
+
+/* 调整电脑显示效果 */
+@media (min-width: 1024px) {
+    footer {
+        font-size: 16px; /* 适应大屏幕显示字体大小 */
+        padding: 30px; /* 增加内边距 */
+    }
+}
+
+/* 调整手机显示效果 */
+@media (max-width: 768px) {
+    footer {
+        font-size: 12px; /* 适应手机显示字体大小 */
+        padding: 10px; /* 减少内边距 */
+    }
+}
+
+.btn {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.fade-in-text {
+    opacity: 0;
+    transition: opacity 2s ease-in;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px;
+    animation: fadeIn 3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .flower-basket-item {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
