@@ -450,21 +450,33 @@ document.addEventListener('DOMContentLoaded', function () {
             <img src="image/IMG_1866.png" alt="名片" class="business-card-img">
             <div id="share-buttons">
 
-    <!-- 分享按钮 -->
-        <section id="share-buttons">
-            <p><strong>分享此頁面</strong></p>
-            <div class="share-btns">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://shiangan.github.io/ZhengXiangyao/" target="_blank" class="share-btn fb-share-btn" aria-label="Share on Facebook">
-                    <img src="image/fb.png" alt="Share on Facebook">
-                </a>
-                <a href="https://line.me/R/msg/text/?https://shiangan.github.io/ZhengXiangyao/" target="_blank" class="share-btn line-share-btn" aria-label="Share on Line">
-                    <img src="image/line.png" alt="Share on Line">
-                </a>
-            </div>
-        </section>
-    </main>
+<section id="share-buttons">
+    <p><strong>分享此頁面</strong></p>
+    <div class="share-btns">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="share-btn fb-share-btn" aria-label="Share on Facebook">
+            <img src="image/fb.png" alt="Share on Facebook">
+        </a>
+        <a href="https://line.me/R/msg/text/?" target="_blank" class="share-btn line-share-btn" aria-label="Share on Line">
+            <img src="image/line.png" alt="Share on Line">
+        </a>
+    </div>
+</section>
+            
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var currentUrl = window.location.href;
+    
+    // Facebook 分享链接
+    var fbShareLink = document.querySelector('.fb-share-btn');
+    fbShareLink.href += currentUrl;  // 动态添加当前页面 URL
 
-                <style>
+    // Line 分享链接
+    var lineShareLink = document.querySelector('.line-share-btn');
+    lineShareLink.href += encodeURIComponent(currentUrl);  // 编码并添加当前页面 URL
+});
+    </script>
+
+     <style>
 #share-buttons {
     text-align: center;
     margin: 20px auto;
