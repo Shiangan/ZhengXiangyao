@@ -445,35 +445,48 @@ document.addEventListener('DOMContentLoaded', function () {
         
          
     
-    <!-- 名片及分享按钮部分 -->
+<!-- 名片及分享按钮部分 -->
 <section id="business-card">
-     <img src="image/IMG_1866.png" alt="名片" class="business-card-img">
-        <div id="share-buttons">
-         <p><strong>分享此頁面</strong></p>
-         <div class="share-btns">
-        <!-- Facebook 分享按钮 -->
-        <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="share-btn fb-share-btn" aria-label="Share on Facebook">
-            <img src="image/fb.png" alt="Share on Facebook">
-        </a>
-        <!-- Line 分享按钮 -->
-        <a href="https://line.me/R/msg/text/?" target="_blank" class="share-btn line-share-btn" aria-label="Share on Line">
-            <img src="image/line.png" alt="Share on Line">
-        </a>
+    <img src="image/IMG_1866.png" alt="名片" class="business-card-img">
+    <div id="share-buttons">
+        <p><strong>分享此頁面</strong></p>
+        <div class="share-btns">
+            <!-- Facebook 分享按钮 -->
+            <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="share-btn fb-share-btn" aria-label="Share on Facebook">
+                <img src="image/fb.png" alt="Share on Facebook">
+            </a>
+            <!-- Line 分享按钮 -->
+            <a href="https://line.me/R/msg/text/?" target="_blank" class="share-btn line-share-btn" aria-label="Share on Line">
+                <img src="image/line.png" alt="Share on Line">
+            </a>
+        </div>
     </div>
 </section>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // 获取当前页面 URL 并进行编码
-        var currentUrl = encodeURIComponent(window.location.href);
-        
+        // 获取当前页面的 URL
+        var currentUrl = window.location.href;
+
+        // 获取当前页面的域名
+        var hostname = window.location.hostname;
+
+        // 检查域名是否是 Punycode 形式（比如：xn--kpry57d）
+        if (hostname.includes("xn--")) {
+            // 替换 Punycode 域名为原始的 .台灣 域名
+            currentUrl = currentUrl.replace(hostname, "24hour.台灣");
+        }
+
+        // 编码 URL，确保特殊字符不会被错误处理
+        var encodedUrl = encodeURIComponent(currentUrl);
+
         // Facebook 分享链接
         var fbShareLink = document.querySelector('.fb-share-btn');
-        fbShareLink.href += currentUrl;  // 动态添加当前页面 URL
+        fbShareLink.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl;  // 动态添加当前页面 URL
 
         // Line 分享链接
         var lineShareLink = document.querySelector('.line-share-btn');
-        lineShareLink.href += currentUrl;  // 编码并添加当前页面 URL
+        lineShareLink.href = "https://line.me/R/msg/text/?" + encodedUrl;  // 编码并添加当前页面 URL
     });
 </script>
 
